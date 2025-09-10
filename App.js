@@ -1,28 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
-import Listitem from './Listitem';
-import User from './User';
-import Form from './Form';
-import Validation from './Validation';
-import Didmount from './Didmount';
-import Unmount from './Unmount';
-import Counter from './Counter';
-import Mountfetch from './Mountfetch';
-import Rerender from './Rerender';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import AppRoutes from './Routes';
 
+// Home component
+function Home() {
+  return <h2>Home Page</h2>;
+}
+
+// About component
+function About() {
+  return <h2>About Page</h2>;
+}
 
 function App() {
   return (
     <div className="App">
-     <Listitem></Listitem> 
-   <User></User>
-    <Form></Form>
-    <Validation></Validation>
-    <Didmount></Didmount>
-    <Unmount></Unmount>
-    <Counter></Counter>
-    <Mountfetch></Mountfetch>
-    <Rerender></Rerender>
+      {/* <BrowserRouter>
+    
+            <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link>
+      </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        
+      </BrowserRouter> */}
+
+      <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<AppRoutes />} />
+      </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
